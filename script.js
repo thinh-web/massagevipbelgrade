@@ -1,7 +1,9 @@
-function changeMap(link){
+function changeMap(link) {
+    const map = document.getElementById("googleMap");
 
-    document
-        .getElementById("googleMap")
-        .src = link;
-
+    if (map) {
+        map.src = link;
+    } else {
+        console.error("Không tìm thấy iframe có id='googleMap'");
+    }
 }
