@@ -76,36 +76,14 @@
     height:650px;
 /* ===== Mobile ===== */
 
-@media (max-width: 768px){
+@media (max-width:768px){
 
     .location-container{
-
         grid-template-columns:1fr;
-
-    }
-
-    .location-list{
-
-        order:1;
-
-    }
-
-    .location-map{
-
-        order:2;
-
     }
 
     .map{
-
         height:350px;
-
     }
-
-}
-
-    border:none;
-
-    border-radius:15px;
 
 }
