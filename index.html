@@ -11,6 +11,57 @@
 
   gtag('config', 'AW-18377772107');
 </script>
+
+<!-- setup thời gian cho sđt -->
+
+<script>
+function updateWhatsAppNumber() {
+
+    // Lấy giờ hiện tại theo GIỜ VIỆT NAM
+    const vietnamTime = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Ho_Chi_Minh",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+    }).formatToParts(new Date());
+
+    let hour = parseInt(
+        vietnamTime.find(part => part.type === "hour").value
+    );
+
+    const minute = parseInt(
+        vietnamTime.find(part => part.type === "minute").value
+    );
+
+    // Tổng số phút trong ngày
+    const currentMinutes = hour * 60 + minute;
+
+    // 02:10 = 130 phút
+    // 08:00 = 480 phút
+    const startTime = 2 * 60 + 10;
+    const endTime = 8 * 60;
+
+    let phoneNumber;
+
+    if (currentMinutes >= startTime && currentMinutes <= endTime) {
+
+        // 02:10 → 08:00
+        phoneNumber = "84962343505";
+
+    } else {
+
+        // 08:01 → 02:09 hôm sau
+        phoneNumber = "84898194131";
+
+    }
+
+    document.getElementById("whatsappBtn").href =
+        "https://wa.me/" + phoneNumber;
+}
+
+updateWhatsAppNumber();
+</script>
+ <!--hết setup thời gian cho sđt-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="style.css">
@@ -140,8 +191,8 @@ footer{
 Relax • VIP Service • Professional Therapists • Available 24/7
 </p>
 
-<a class="btn" href="https://wa.me/+84962343505">
-Book via WhatsApp
+<a class="btn" id="whatsappBtn" href="#">
+    Book via WhatsApp
 </a>
 
 </div>
@@ -156,7 +207,7 @@ Book via WhatsApp
  
    <div class="cards">
       <div class="therapist-card">
-          <a href="https://wa.me/+84962343505" target="_blank">
+          <a class="btn" id="whatsappBtn" href="#" target="_blank">
          <img src="images/anh 26.jpg" alt="Sophia">
           </a>
          <h3>Sophia</h3>
