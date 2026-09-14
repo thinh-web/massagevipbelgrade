@@ -55,8 +55,9 @@ function updateWhatsAppNumber() {
 
     }
 
-    document.getElementById("whatsappBtn").href =
-        "https://wa.me/" + phoneNumber;
+    document.querySelectorAll(".whatsapp-link").forEach(function(link) {
+    link.href = "https://wa.me/" + phoneNumber;
+});
 }
 
 updateWhatsAppNumber();
